@@ -12,7 +12,7 @@ const App = () => {
   useEffect(() => {
     const fetchedData = async () => {
         setLoading(true);
-         const res = await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`);
+         const res = await fetch(`https://jsonplaceholder.typicode.com/posts`);
           const json = await res.json();
           console.log(json)
            
@@ -27,22 +27,20 @@ const App = () => {
 
   return (
     <div style={{ padding: "20px" }}>
-      <h2>Posts for User {userId}</h2>
-      <button onClick={() => setUserId((prev) => prev + 1)}>Next User</button>
-      <button onClick={() => setUserId((prev) => (prev > 1 ? prev - 1 : 1))}>Prev User</button>
+      <h2>Posts</h2>
+     
 
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <ul>
-          {cachedData.map((post) => (
-           <div  key={post.id}>
-             <h4>{post.title}</h4>
-             <p>{post.body}</p>
-           </div>
-            
-          ))}
-        </ul>
+       <ul>
+  {cachedData.map((post) => (
+    <li key={post.id}>
+      <h4>{post.title}</h4>
+      <p>{post.body}</p>   {/* body ko yahan render karna zaruri hai */}
+    </li>
+  ))}
+</ul>
       )}
     </div>
   )
