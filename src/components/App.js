@@ -17,7 +17,7 @@ const App = () => {
             setLoading(false);
     }
      fetchedData();
-  },[data])
+  },[])
 
     const cachedData = useMemo(() => data, [data]);
 
