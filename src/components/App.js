@@ -31,7 +31,7 @@ const App = () => {
       <button onClick={() => setUserId((prev) => (prev > 1 ? prev - 1 : 1))}>Prev User</button>
 
       {loading ? (
-        <p>Loading data...</p>
+        <p>Loading...</p>
       ) : (
         <ul>
           {cachedData.map((post) => (
