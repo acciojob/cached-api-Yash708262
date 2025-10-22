@@ -14,7 +14,8 @@ const App = () => {
         setLoading(true);
          const res = await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`);
           const json = await res.json();
-            await new Promise((res) => setTimeout(res, 500)); 
+          console.log(json)
+           
            setData(json);
             setLoading(false);
     }
@@ -35,7 +36,11 @@ const App = () => {
       ) : (
         <ul>
           {cachedData.map((post) => (
-            <h4 key={post.id}>{post.title}</h4>
+           <div  key={post.id}>
+             <h4>{post.title}</h4>
+             <p>{post.body}</p>
+           </div>
+            
           ))}
         </ul>
       )}
