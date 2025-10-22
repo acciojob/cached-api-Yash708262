@@ -14,6 +14,7 @@ const App = () => {
         setLoading(true);
          const res = await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`);
           const json = await res.json();
+            await new Promise((res) => setTimeout(res, 500)); 
            setData(json);
             setLoading(false);
     }
