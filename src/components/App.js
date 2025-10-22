@@ -35,7 +35,7 @@ const App = () => {
       ) : (
         <ul>
           {cachedData.map((post) => (
-            <li key={post.id}>{post.title}</li>
+            <h4 key={post.id}>{post.title}</h4>
           ))}
         </ul>
       )}
