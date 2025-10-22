@@ -5,7 +5,6 @@ import "regenerator-runtime/runtime";
 
 
 const App = () => {
-  const [userId, setUserId] = useState(1)
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -14,13 +13,11 @@ const App = () => {
         setLoading(true);
          const res = await fetch(`https://jsonplaceholder.typicode.com/posts`);
           const json = await res.json();
-          console.log(json)
-           
            setData(json);
             setLoading(false);
     }
      fetchedData();
-  },[userId])
+  },[data])
 
     const cachedData = useMemo(() => data, [data]);
 
@@ -37,7 +34,7 @@ const App = () => {
   {cachedData.map((post) => (
     <li key={post.id}>
       <h4>{post.title}</h4>
-      <p>{post.body}</p>   {/* body ko yahan render karna zaruri hai */}
+      <p>{post.body}</p>  
     </li>
   ))}
 </ul>
